@@ -1,7 +1,9 @@
 # Electron.js Template
 A template Electron.js application.
 
-![Screenshot of application.](https://github.com/nethe550/electronjs-template/blob/main/screenshots/application.png?raw=true)
+![Screenshot of application. (Dark)](https://github.com/nethe550/electronjs-template/blob/main/screenshots/application-dark.png?raw=true)
+
+![Screenshot of application. (Light)](https://github.com/nethe550/electronjs-template/blob/main/screenshots/application-light.png?raw=true)
 
 ## Installation:
 Clone repository: 
