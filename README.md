@@ -1,5 +1,5 @@
 # Electron.js Template
-A template Electron.js application.
+A template Electron.js application. (Windows 10/11)
 
 Dark Theme:
 ![Screenshot of application. (Dark)](https://github.com/nethe550/electronjs-template/blob/main/screenshots/application-dark.png?raw=true)
