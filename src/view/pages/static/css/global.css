@@ -1,0 +1,208 @@
+:root {
+
+    /* Font */
+
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    --font-dark-color: rgb(255,255,255);
+    --font-light-color: rgb(0,0,0);
+
+    --heading-font-weight: 300;
+    --text-font-weight: 200;
+
+    /* A Color */
+
+    --a-dark-color: rgb(35,40,50);
+    --a-dark-hover-color: rgb(50,55,65);
+
+    --a-light-color: rgb(205,220,230);
+    --a-light-hover-color: rgb(180,195,205);
+
+    /* B Color */
+
+    --b-dark-color: rgb(50,65,75);
+    --b-dark-hover-color: rgb(65,80,90);
+
+    --b-light-color: rgb(230,245,255);
+    --b-light-hover-color: rgb(225,230,240);
+
+    /* Menu Bar */
+
+    --menu-bar-height: 32px;
+    --menu-bar-button-width: 46px;
+
+    /* Current Styles */
+    
+    --font-color: var(--font-dark-color);
+    
+    --a-color: var(--a-dark-color);
+    --a-hover-color: var(--a-dark-hover-color);
+
+    --b-color: var(--b-dark-color);
+    --b-hover-color: var(--b-dark-hover-color);
+
+    --icon-filter: invert(1);
+
+}
+
+* {
+    font-family: var(--font-family);
+    font-weight: var(--text-font-weight);
+    color: var(--font-color);
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--heading-font-weight);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: var(--a-color);
+}
+
+div#content {
+    height: calc(100% - var(--menu-bar-height));
+    margin-top: var(--menu-bar-height);
+    padding: 0.25em 2em;
+    overflow-y: auto;
+}
+
+header#titlebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--menu-bar-height);
+    width: 100%;
+    padding: calc(var(--menu-bar-height) / 8);
+    background-color: var(--a-color);
+}
+
+header#titlebar div#drag-region {
+    width: 100%;
+    height: 100%;
+    -webkit-app-region: drag;
+    display: grid;
+    grid-template-columns: auto 138px;
+}
+
+div#window-title {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+div#window-title span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+div#window-controls {
+    display: grid;
+    grid-template-columns: repeat(4, var(--menu-bar-button-width));
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    -webkit-app-region: no-drag;
+}
+
+#window-controls .menu-bar-button {
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+#window-controls .menu-bar-button:hover {
+    background-color: var(--b-color);
+}
+
+#theme-button {
+    grid-column: 1;
+}
+
+#theme-button .icon {
+    width: 20px;
+    height: 20px;
+    filter: var(--icon-filter);
+}
+
+#min-button {
+    grid-column: 2;
+}
+
+#max-button, #restore-button {
+    grid-column: 3;
+}
+
+#close-button {
+    grid-column: 4;
+}
+
+#close-button:hover {
+    background-color: rgb(232,17,35) !important;
+}
+
+#close-button:active {
+    background-color: rgb(241,112,122) !important;
+}
+
+#close-button:active .icon {
+    filter: invert(1);
+}
+
+#restore-button {
+    display: none !important;
+}
+
+.maximized #titlebar {
+    width: 100%;
+    padding: 0;
+}
+
+.maximized #window-title {
+    margin-left: 12px;
+}
+
+.maximized #restore-button {
+    display: flex !important;
+}
+
+.maximized #max-button {
+    display: none;
+}
+
+/* Titlebar Icon Rendering */
+
+@media (-webkit-device-pixel-ratio: 1.5), (device-pixel-ratio: 1.5),
+    (-webkit-device-pixel-ratio: 2), (device-pixel-ratio: 2),
+    (-webkit-device-pixel-ratio: 3), (device-pixel-ratio: 3) {
+
+  #window-controls .icon {
+    width: 10px;
+    height: 10px;
+  }
+
+}
